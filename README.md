@@ -19,3 +19,31 @@ or vegan restaurants at Milan city:
 ```
 /🇮🇹it/Milano/ristoranti/vegani
 ```
+
+## Laravista Dockerfile
+This project uses [PHP Docker official image](https://hub.docker.com/_/php) for local development.
+```
+docker build -t laravista .
+docker run -d --rm -p 80:80 -v "$PWD/src":/var/www/html --name running laravista
+docker exec -it running bash
+```
+
+Into the container we already execute:
+```
+composer create-project laravel/laravel CatLink
+```
+so you have the Laravel [framework code here](https://github.com/rognoni/catlink/tree/main/src/CatLink)
+but without the `/vendor` folder with the libraries (dependencies) because configured into the `.gitignore` file.
+
+To get the dependencies:
+```
+root@a8b86019f174:/var/www/html# cd CatLink/
+root@a8b86019f174:/var/www/html/CatLink# composer install
+```
+
+and when completed try http://127.0.0.1/CatLink/public/
+
+At the end use this:
+```
+docker stop running
+```
