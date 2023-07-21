@@ -53,6 +53,8 @@ docker stop running
 ## Apache .htaccess
 We added this `/CatLink/.htaccess` file:
 ```
+AddHandler av-php82 .php
+
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /CatLink
@@ -68,3 +70,15 @@ Route::get('/CatLink', function () {
     return view('welcome');
 });
 ```
+
+`AddHandler av-php82 .php` is useful only in production (for AlterVista) but you can keep it in development.
+
+## Release with ZIP
+You have to go into `src` folder and execute:
+```
+zip -r CatLink.zip CatLink
+```
+
+Now you can upload the archive using the AlterVista web panel for administrators.
+
+Try this https://laravista.altervista.org/CatLink/
