@@ -60,7 +60,7 @@ We added this `/CatLink/.htaccess` file:
 </IfModule>
 ```
 
-to avoid to expose the `.env` file here `http://127.0.0.1/CatLink/.env`
+to avoid to expose the `.env` file here http://127.0.0.1/CatLink/.env
 
 and we updated the routes:
 ```
@@ -68,5 +68,3 @@ Route::get('/CatLink', function () {
     return view('welcome');
 });
 ```
-
-Try this http://127.0.0.1/CatLink/
