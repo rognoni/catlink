@@ -41,9 +41,32 @@ root@a8b86019f174:/var/www/html# cd CatLink/
 root@a8b86019f174:/var/www/html/CatLink# composer install
 ```
 
-and when completed try http://127.0.0.1/CatLink/public/
+and when completed try http://127.0.0.1/CatLink/ 
+
+Without `.htaccess` was http://127.0.0.1/CatLink/public/
 
 At the end use this:
 ```
 docker stop running
 ```
+
+## Apache .htaccess
+We added this `/CatLink/.htaccess` file:
+```
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /CatLink
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+```
+
+to avoid to expose the `.env` file here `http://127.0.0.1/CatLink/.env`
+
+and we updated the routes:
+```
+Route::get('/CatLink', function () {
+    return view('welcome');
+});
+```
+
+Try this http://127.0.0.1/CatLink/
