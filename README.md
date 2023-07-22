@@ -117,7 +117,7 @@ Route::get('/CatLink/artisan/migrate', function () {
 });
 ```
 
-(before continue we have to FIX the issue #1 with the new version of PHP configured on AlterVista)
+(before continue we have to FIX the issue [#1](https://github.com/rognoni/catlink/issues/1) with the new version of PHP configured on AlterVista)
 
 at the end you could make this test:
 
