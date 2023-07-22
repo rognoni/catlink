@@ -129,4 +129,4 @@ Route::get('/CatLink/test', function () {
 
 ## Roadmap
 
-See into [docs/release](https://github.com/rognoni/catlink/tree/main/docs/release) folder
+See into [docs/releases](https://github.com/rognoni/catlink/tree/main/docs/releases) folder
