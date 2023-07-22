@@ -82,3 +82,47 @@ zip -r CatLink.zip CatLink
 Now you can upload the archive using the AlterVista web panel for administrators.
 
 Try this https://laravista.altervista.org/CatLink/
+
+## MySQL
+You have to create your local database for example named `laravel` and configure it into `.env`
+
+```
+DB_CONNECTION=mysql
+DB_HOST=host.docker.internal # This works on macOS
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=root
+DB_PASSWORD=pass
+```
+
+About `DB_HOST` read [more info here](https://docs.docker.com/desktop/networking/#i-want-to-connect-from-a-container-to-a-service-on-the-host)
+
+AlterVista database is not accesible from your machine, but works only on the production server using this configuration:
+
+```
+DB_CONNECTION=mysql
+DB_HOST=localhost
+DB_PORT=3306
+DB_DATABASE=my_laravista
+DB_USERNAME=laravista
+DB_PASSWORD=
+```
+
+After you release this configuration in production, you can not execute migration commands from a console but you can from the web `routes/web.php`
+
+```
+Route::get('/CatLink/artisan/migrate', function () {
+    Artisan::call('migrate');
+    return Artisan::output();
+});
+```
+
+(before continue we have to FIX the issue #1 with the new version of PHP configured on AlterVista)
+
+at the end you could make this test:
+
+```
+Route::get('/CatLink/test', function () {
+    return \App\Models\User::all();
+});
+```
