@@ -126,3 +126,7 @@ Route::get('/CatLink/test', function () {
     return \App\Models\User::all();
 });
 ```
+
+## Roadmap
+
+See into [docs/release](https://github.com/rognoni/catlink/tree/main/docs/release) folder
