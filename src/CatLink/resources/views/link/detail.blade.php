@@ -12,7 +12,7 @@
         <h3>{{ $link->title }}</h3>
         <a href="{{ $link->url }}">{{ $link->url }}</a>
       </hgroup>
-      <a href="#">🔍More</a> <code>{{ $link->category }}</code><br>
+      <a href="{{ route('home', ['c' => $link->category]) }}">🔍More</a> <code>{{ $link->category }}</code><br>
       <small>{{ $link->created_at->format('Y-m-d') }} &nbsp; 👁️{{ $link->views }}</small>
       <article>
         <div class="grid">

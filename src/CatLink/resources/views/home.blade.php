@@ -7,7 +7,7 @@
       </p>
       @foreach ($links as $link)
       <p>
-        <a href="#">{{ $link->title }}</a><br>
+        <a href="{{ route('link_detail', ['id' => $link->id]) }}">{{ $link->title }}</a><br>
         <code>{{ $link->category }}</code><br>
         <small>{{ $link->created_at->format('Y-m-d') }} &nbsp; 👁️{{ $link->views }}</small>
       </p>
