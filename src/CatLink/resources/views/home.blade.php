@@ -3,7 +3,7 @@
 @section('content')
       <p>
         <a href="{{ route('categories') }}">Category</a> <code>{{ $category }}</code><br>
-        <a href="#">🔍Search</a> <code>{{ $search }}</code>
+        <a href="{{ route('search', ['c' => $category, 's' => $search]) }}">🔍Search</a> <code>{{ $search }}</code>
       </p>
       @foreach ($links as $link)
       <p>

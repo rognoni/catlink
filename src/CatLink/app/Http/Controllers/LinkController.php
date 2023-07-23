@@ -44,4 +44,11 @@ class LinkController extends Controller
 
         return view('link.categories', compact('search', 'links'));
     }
+
+    public function search(Request $request) {
+        $category = $request->input('c', '/');
+        $search = $request->input('s');
+
+        return view('link.search', compact('category', 'search'));
+    }
 }
