@@ -23,4 +23,10 @@ class LinkController extends Controller
 
         return view('home', compact('category', 'search', 'links'));
     }
+
+    public function detail($id) {
+        $link = Link::findOrFail($id);
+
+        return view('link.detail', compact('link'));
+    }
 }
