@@ -13,8 +13,17 @@ return new class extends Migration
     {
         Schema::create('links', function (Blueprint $table) {
             $table->id();
+            $table->string('category', 100);
+            $table->string('url', 2000);
+            $table->text('html')->nullable();
+            $table->string('title', 100)->nullable();
+            $table->string('description', 500)->nullable();
+            $table->string('og_image', 2000)->nullable();
+            $table->integer('views')->default(0);
             $table->timestamps();
         });
+
+        DB::statement('ALTER TABLE links ADD FULLTEXT links_html_index (html)');
     }
 
     /**
