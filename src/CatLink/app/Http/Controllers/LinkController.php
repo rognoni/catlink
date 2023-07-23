@@ -29,4 +29,19 @@ class LinkController extends Controller
 
         return view('link.detail', compact('link'));
     }
+    
+    public function categories(Request $request) {
+        $search = $request->input('search');
+
+        $query = Link::query();
+        $query->select('category')->distinct()->get();
+
+        if (!empty($search)) {
+            $query->where('category', 'like', '%'.$search.'%');
+        }
+
+        $links = $query->orderBy('category', 'ASC')->get();
+
+        return view('link.categories', compact('search', 'links'));
+    }
 }

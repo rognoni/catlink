@@ -16,7 +16,7 @@
   <body>
     <nav class="container">
       <ul>
-        <li><strong>🐱🔗 <a href="/CatLink">catlink</a></strong></li>
+        <li><strong>🐱🔗 <a href="{{ route('home') }}">catlink</a></strong></li>
       </ul>
       <ul>
         <li><a href="#">About</a></li>
