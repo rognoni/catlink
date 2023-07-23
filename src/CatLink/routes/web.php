@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\LinkController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/CatLink', function () {
-    return view('welcome');
+Route::prefix('/CatLink')->group(function () {
+    /*Route::get('/', function () {
+        return view('welcome');
+    });*/    
+
+    Route::get('/', [LinkController::class, 'links'])->name('home');
 });
