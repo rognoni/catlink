@@ -12,6 +12,10 @@ class LinkController extends Controller
         $category = $request->input('c', '/');
         $search = $request->input('s');
 
+        if (empty($category)) {
+            $category = '/';
+        }
+
         $query = Link::query();
         $query->where('category', 'like', $category.'%');
 
@@ -26,6 +30,8 @@ class LinkController extends Controller
 
     public function detail($id) {
         $link = Link::findOrFail($id);
+        $link->views += 1;
+        $link->save();
 
         return view('link.detail', compact('link'));
     }
@@ -50,5 +56,11 @@ class LinkController extends Controller
         $search = $request->input('s');
 
         return view('link.search', compact('category', 'search'));
+    }
+
+    public function html($id) {
+        $link = Link::findOrFail($id);
+
+        return view('link.html', compact('link'));
     }
 }

@@ -13,7 +13,11 @@
         <a href="{{ $link->url }}">{{ $link->url }}</a>
       </hgroup>
       <a href="{{ route('home', ['c' => $link->category]) }}">🔍More</a> <code>{{ $link->category }}</code><br>
-      <small>{{ $link->created_at->format('Y-m-d') }} &nbsp; 👁️{{ $link->views }}</small>
+      <small>
+        {{ $link->created_at->format('Y-m-d') }} &nbsp;
+        👁️{{ $link->views }} &nbsp;
+        <a href="{{ route('html', ['id' => $link->id]) }}">HTML</a>
+      </small>
       <article>
         <div class="grid">
             <div>
