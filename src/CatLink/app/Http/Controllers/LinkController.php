@@ -23,7 +23,7 @@ class LinkController extends Controller
             $query->whereRaw("MATCH(html) AGAINST(? IN BOOLEAN MODE)" , [$search]);
         }
 
-        $links = $query->orderBy('id', 'DESC')->get();
+        $links = $query->orderBy('id', 'DESC')->paginate(10);
 
         return view('home', compact('category', 'search', 'links'));
     }

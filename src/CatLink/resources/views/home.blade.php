@@ -12,4 +12,7 @@
         <small>{{ $link->created_at->format('Y-m-d') }} &nbsp; 👁️{{ $link->views }}</small>
       </p>
       @endforeach
+      <p>
+        {{ $links->appends(['c' => $category, 's' => $search])->links() }}
+      </p>
 @endsection

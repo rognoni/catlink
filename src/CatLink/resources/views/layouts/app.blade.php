@@ -19,7 +19,7 @@
         <li><strong>🐱🔗 <a href="{{ route('home') }}">catlink</a></strong></li>
       </ul>
       <ul>
-        <li><a href="#">About</a></li>
+        <li><a href="{{ route('about') }}">About</a></li>
       </ul>
     </nav>
     <main class="container">

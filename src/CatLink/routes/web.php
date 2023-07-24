@@ -25,4 +25,8 @@ Route::prefix('/CatLink')->group(function () {
     Route::get('/search', [LinkController::class, 'search'])->name('search');
     Route::get('/categories', [LinkController::class, 'categories'])->name('categories');
     Route::get('/html{id}', [LinkController::class, 'html'])->name('html');
+
+    Route::get('/about', function () {
+        return view('about');
+    })->name('about');
 });
