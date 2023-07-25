@@ -29,4 +29,8 @@ Route::prefix('/CatLink')->group(function () {
     Route::get('/about', function () {
         return view('about');
     })->name('about');
+
+    Route::get('/cookie', function () {
+        return view('cookie');
+    })->name('cookie');
 });
