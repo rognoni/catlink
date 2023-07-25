@@ -5,7 +5,7 @@
 
   <label for="category">Category</label>
   <input type="text" id="category" name="c" value="{{ $category}}" placeholder="Type word or /category">
-  <small>Use <code>/</code> to search all from the root</small>
+  <small>Start with <code>/</code> to search absolute path or remove it for relative path</small>
 
   <label for="Search">Search</label>
   <input type="text" id="search" name="s" value="{{ $search}}">

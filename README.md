@@ -13,13 +13,15 @@ If you see [the way normally used](https://pinboard.in/recent/) to tag links, it
 
 A hierarchical categories system is much clearer and allow you to search starting from the generic (on the left) to the details (on the right), for example:
 ```
-/🇺🇸us/New York/jobs/programmer
+/🇺🇸us/New York/job/programmer
 ```
 
-or vegan restaurants at Milan city:
+or vegan restaurant at Milan city:
 ```
-/🇮🇹it/Milano/ristoranti/vegani
+/🇮🇹it/Milano/ristorante/vegano
 ```
+
+⚠️ Remember to use always singular name for the catogory
 
 ## Laravista Dockerfile
 This project uses [PHP Docker official image](https://hub.docker.com/_/php) for local development.

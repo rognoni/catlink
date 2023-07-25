@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 use App\Models\Link;
 
@@ -17,7 +18,11 @@ class LinkController extends Controller
         }
 
         $query = Link::query();
-        $query->where('category', 'like', $category.'%');
+        if (Str::startsWith($category, '/')) {
+            $query->where('category', 'like', $category.'%'); // absolute path
+        } else {
+            $query->where('category', 'like', '%'.$category.'%'); // relative path
+        }
 
         if (!empty($search)) {
             $query->whereRaw("MATCH(html) AGAINST(? IN BOOLEAN MODE)" , [$search]);
