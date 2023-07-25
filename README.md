@@ -130,6 +130,20 @@ Route::get('/CatLink/test', function () {
 });
 ```
 
+## Command app:prepare {env}
+
+This command help you to prepare a specific environment (prod, dev)
+
+```
+root@504f54a78618:/var/www/html/CatLink# php artisan app:prepare dev
+Preparing dev ...
+Done!
+
+root@504f54a78618:/var/www/html/CatLink# php artisan app:prepare prod
+Preparing prod ...
+Done!
+```
+
 ## Roadmap
 
 See into [docs/releases](https://github.com/rognoni/catlink/tree/main/docs/releases) folder
