@@ -21,7 +21,7 @@ or vegan restaurant at Milan city:
 /🇮🇹it/Milano/ristorante/vegano
 ```
 
-⚠️ Remember to use always singular name for the catogory
+⚠️ Remember to use always singular name for the category.
 
 ## Laravista Dockerfile
 This project uses [PHP Docker official image](https://hub.docker.com/_/php) for local development.
