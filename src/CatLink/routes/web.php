@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\LinkController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,10 @@ Route::prefix('/CatLink')->group(function () {
     });*/    
 
     Route::get('/', [LinkController::class, 'links'])->name('home');
+    Route::get('/ogin', [LoginController::class, 'login'])->name('login');
+    Route::post('/login', [LoginController::class, 'loginSubmit']);
+    Route::get('/register/{token}', [LoginController::class, 'register'])->name('register');
+    Route::post('/register/{token}', [LoginController::class, 'registerSubmit']);
     Route::get('/links/{id}', [LinkController::class, 'detail'])->name('link_detail');
     Route::get('/search', [LinkController::class, 'search'])->name('search');
     Route::get('/categories', [LinkController::class, 'categories'])->name('categories');
@@ -34,3 +39,12 @@ Route::prefix('/CatLink')->group(function () {
         return view('cookie');
     })->name('cookie');
 });
+
+Route::prefix('CatLink')->middleware(['auth'])->group(function () {
+    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+    Route::get('/user', function () {
+        return view('user');
+    })->name('user');
+});
+

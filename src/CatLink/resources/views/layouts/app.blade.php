@@ -19,8 +19,9 @@
         <li><strong>🐱🔗 <a href="{{ route('home') }}">catlink</a></strong></li>
       </ul>
       <ul>
-      <li><a href="{{ route('about') }}">About</a></li>
+        <li><a href="{{ route('about') }}">About</a></li>
         <li><a href="{{ route('cookie') }}">Cookie</a></li>
+        @auth<li><a href="{{ route('user') }}">{{ '@' . auth()->user()->username }}</a></li>@endauth
       </ul>
     </nav>
     <main class="container">
