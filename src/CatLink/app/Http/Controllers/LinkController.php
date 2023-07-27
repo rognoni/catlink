@@ -66,7 +66,7 @@ class LinkController extends Controller
     }
 
     public function html($id) {
-        $link = Link::findOrFail($id);
+        $link = Link::where('id', $id)->where('state', 'active')->firstOrFail();
 
         return view('link.html', compact('link'));
     }
