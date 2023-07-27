@@ -42,11 +42,7 @@ Route::prefix('/CatLink')->group(function () {
 
 Route::prefix('CatLink')->middleware(['auth'])->group(function () {
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-
-    Route::get('/user', function () {
-        return view('user');
-    })->name('user');
-
+    Route::get('/user', [LinkController::class, 'user'])->name('user');
     Route::get('/link_add', [LinkController::class, 'add'])->name('link_add');
     Route::post('/link_add', [LinkController::class, 'addSubmit']);
 });

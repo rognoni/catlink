@@ -74,7 +74,22 @@ class LinkController extends Controller
     }
 
     public function addSubmit(Request $request) {
+        $request->validate([
+            'url' => 'required|max:2000',
+            'category' => 'required|max:100',
+        ]);
 
-        return 'TODO';
+        $url = $request->input('url');
+        $category = $request->input('category'); // TODO normalize category
+        $user_id = auth()->user()->id;
+        Link::create(['url' => $url, 'category' => $category, 'user_id' => $user_id]);
+
+        return redirect()->route('user');
+    }
+
+    public function user(Request $request) {
+        $links = Link::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->get();
+
+        return view('user', compact('links'));
     }
 }

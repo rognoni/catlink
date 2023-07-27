@@ -24,7 +24,7 @@
                     <a href="{{ route('categories') }}">See the examples</a>
                 </small>
             </div>
-            <button disabled type="submit">Add link</button>
+            <button type="submit">Add link</button>
         </form>
     </div>
 </article>
