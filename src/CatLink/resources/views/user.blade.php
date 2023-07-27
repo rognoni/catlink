@@ -5,11 +5,11 @@
     <a href="{{ route('link_add') }}">➕Add link</a> &nbsp;
     <a href="{{ route('logout') }}">👋Logout</a>
 </p>
-    @isset($links)
+    @empty($links)
     <p>
         ⚠️ You have to wait for the web-crowler to process your links before they are public, usually a few days.
     </p>
-    @endisset
+    @endempty
     @forelse ($links as $link)
     <p>
         <small>
