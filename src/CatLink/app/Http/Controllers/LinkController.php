@@ -28,13 +28,15 @@ class LinkController extends Controller
             $query->whereRaw("MATCH(html) AGAINST(? IN BOOLEAN MODE)" , [$search]);
         }
 
+        $query->where('state', 'active');
+
         $links = $query->orderBy('id', 'DESC')->paginate(10);
 
         return view('home', compact('category', 'search', 'links'));
     }
 
     public function detail($id) {
-        $link = Link::findOrFail($id);
+        $link = Link::where('id', $id)->where('state', 'active')->firstOrFail();
         $link->views += 1;
         $link->save();
 
