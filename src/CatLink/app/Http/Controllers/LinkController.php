@@ -47,6 +47,7 @@ class LinkController extends Controller
         $search = $request->input('search');
 
         $query = Link::query();
+        $query->where('state', 'active');
         $query->select('category')->distinct()->get();
 
         if (!empty($search)) {
