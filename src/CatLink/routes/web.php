@@ -22,7 +22,7 @@ Route::prefix('/CatLink')->group(function () {
     });*/    
 
     Route::get('/', [LinkController::class, 'links'])->name('home');
-    Route::get('/ogin', [LoginController::class, 'login'])->name('login');
+    Route::get('/login', [LoginController::class, 'login'])->name('login');
     Route::post('/login', [LoginController::class, 'loginSubmit']);
     Route::get('/register/{token}', [LoginController::class, 'register'])->name('register');
     Route::post('/register/{token}', [LoginController::class, 'registerSubmit']);
@@ -46,5 +46,8 @@ Route::prefix('CatLink')->middleware(['auth'])->group(function () {
     Route::get('/user', function () {
         return view('user');
     })->name('user');
+
+    Route::get('/link_add', [LinkController::class, 'add'])->name('link_add');
+    Route::post('/link_add', [LinkController::class, 'addSubmit']);
 });
 

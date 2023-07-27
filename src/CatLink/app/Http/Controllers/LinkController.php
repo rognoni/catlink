@@ -68,4 +68,13 @@ class LinkController extends Controller
 
         return view('link.html', compact('link'));
     }
+
+    public function add(Request $request) {
+        return view('link.add');
+    }
+
+    public function addSubmit(Request $request) {
+
+        return 'TODO';
+    }
 }

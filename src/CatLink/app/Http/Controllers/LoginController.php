@@ -47,14 +47,12 @@ class LoginController extends Controller
     }
 
     public function loginSubmit(Request $request) {
-        /*$credentials = $request->only('username', 'password');
+        $credentials = $request->only('username', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect()->intended(route('home'));
+            return redirect()->intended(route('user'));
         }
 
-        return redirect()->route('login')->withErrors(['Wrong username or password']);*/
-
-        return "TODO";
+        return redirect()->route('login')->withErrors(['Wrong username or password']);
     }
 }

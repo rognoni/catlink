@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('description', 2000)->nullable();
             $table->string('og_image', 2000)->nullable();
             $table->integer('views')->default(0);
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->string('state', 20)->default('to process'); // to process, active, rejected, hidden, deleted
             $table->timestamps();
         });
 

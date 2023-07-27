@@ -22,6 +22,7 @@
         <li><a href="{{ route('about') }}">About</a></li>
         <li><a href="{{ route('cookie') }}">Cookie</a></li>
         @auth<li><a href="{{ route('user') }}">{{ '@' . auth()->user()->username }}</a></li>@endauth
+        @guest<li><a href="{{ route('login') }}">Login</a></li>@endguest
       </ul>
     </nav>
     <main class="container">
