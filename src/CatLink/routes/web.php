@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LinkController;
 use App\Http\Controllers\LoginController;
 
@@ -47,3 +48,11 @@ Route::prefix('CatLink')->middleware(['auth'])->group(function () {
     Route::post('/link_add', [LinkController::class, 'addSubmit']);
 });
 
+Route::prefix('CatLink/admin')->middleware(['auth', 'role:admin'])->group(function () {
+    /*Route::get('/home', function () {
+        return "TODO admin";
+    })->name('admin_home');*/
+    Route::get('/home', [AdminController::class, 'home'])->name('admin_home');
+    Route::get('/editor', [AdminController::class, 'editor'])->name('admin_editor');
+    Route::post('/editor', [AdminController::class, 'editorSubmit']);
+});

@@ -14,17 +14,17 @@
         @endif
             <div>
                 <label for="username">Username</label>
-                <input type="text" id="username" name="username" value="{{{ old('username') }}}" placeholder="" maxlength="20">
+                <input type="text" id="username" name="username" value="{{ old('username') }}" placeholder="" maxlength="20">
                 <small>This is the profile name, for example <b>@laravista</b></small>
             </div>
             <div>
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" value="{{{ old('password') }}}" placeholder=""  maxlength="100">
+                <input type="password" id="password" name="password" value="{{ old('password') }}" placeholder=""  maxlength="100">
                 <small>Choose your password and remember it.</small>
             </div>
             <div>
                 <label for="profile_link">Profile link</label>
-                <input type="text" id="profile_link" name="profile_link" value="{{{ old('profile_link') }}}" placeholder="https://"  maxlength="2000">
+                <input type="text" id="profile_link" name="profile_link" value="{{ old('profile_link') }}" placeholder="https://"  maxlength="2000">
                 <small>What is your personal homepage, blog or social profile?</small>
             </div>
             <button type="submit">Register</button>

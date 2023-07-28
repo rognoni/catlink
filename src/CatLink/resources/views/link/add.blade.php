@@ -14,11 +14,11 @@
         @endif
             <div>
                 <label for="url">URL</label>
-                <input type="text" id="url" name="url" value="{{{ old('url') }}}" placeholder="https://"  maxlength="2000">
+                <input type="text" id="url" name="url" value="{{ old('url') }}" placeholder="https://"  maxlength="2000">
             </div>
             <div>
                 <label for="category">Category path</label>
-                <input type="text" id="category" name="category" value="{{{ old('category') }}}" placeholder="/category/sub-category/ ..."  maxlength="100">
+                <input type="text" id="category" name="category" value="{{ old('category') }}" placeholder="/category/sub-category/ ..."  maxlength="100">
                 <small>
                     ⚠️ Remember to use always singular name for the category.
                     <a href="{{ route('categories') }}">See the examples</a>

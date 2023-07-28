@@ -14,11 +14,11 @@
         @endif
             <div>
                 <label for="username">Username</label>
-                <input type="text" id="username" name="username" value="{{{ old('username') }}}" placeholder="" maxlength="20">
+                <input type="text" id="username" name="username" value="{{ old('username') }}" placeholder="" maxlength="20">
             </div>
             <div>
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" value="{{{ old('password') }}}" placeholder=""  maxlength="100">
+                <input type="password" id="password" name="password" value="{{ old('password') }}" placeholder=""  maxlength="100">
                 <small><b>Register:</b> You need your registration link, ask to the admin.</small>
             </div>
             <button type="submit">Login</button>
