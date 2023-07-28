@@ -14,7 +14,7 @@
     <p>
         <small>
         @if ($link->state == 'to process')
-            {{ $link->created_at->format('Y-m-d') }} <b style="background-color: yellow">to process</b>
+            {{ $link->created_at->format('Y-m-d') }} <b style="background-color: yellow; color: black">to process</b>
             {{ $link->url}}
         @endif
 
