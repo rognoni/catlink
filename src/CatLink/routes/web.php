@@ -39,6 +39,10 @@ Route::prefix('/CatLink')->group(function () {
     Route::get('/cookie', function () {
         return view('cookie');
     })->name('cookie');
+
+    Route::get('/guide/category', function () {
+        return view('guide.category');
+    })->name('guide_category');
 });
 
 Route::prefix('CatLink')->middleware(['auth'])->group(function () {

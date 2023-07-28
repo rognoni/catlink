@@ -20,8 +20,8 @@
                 <label for="category">Category path</label>
                 <input type="text" id="category" name="category" value="{{ old('category') }}" placeholder="/category/sub-category/ ..."  maxlength="100">
                 <small>
-                    ⚠️ Remember to use always singular name for the category.
-                    <a href="{{ route('categories') }}">See the examples</a>
+                    ⚠️ Remember to read carefully this
+                    <a href="{{ route('guide_category') }}">guide</a>
                 </small>
             </div>
             <button type="submit">Add link</button>
