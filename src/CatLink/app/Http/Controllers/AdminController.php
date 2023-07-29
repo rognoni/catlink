@@ -49,11 +49,40 @@ class AdminController extends Controller
     }
 
     public function linkUpdateSubmit($id, Request $request) {
+        $message = '';
         $link = Link::where('id', $id)->firstOrFail();
-        $link->update($request->all());
 
-        $message = 'File updated successfully!';
+        if ($request->input('execute') == 'update') {
+            $link->update($request->all());
+            $message = 'Link updated successfully!';
+
+        } else if ($request->input('execute') == 'get_html') {
+            $link->url = $request->input('url');
+            $link->category = $request->input('category');
+            $link->html = file_get_contents($link->url);
+
+        } else if ($request->input('execute') == 'get_meta') {
+            $link->url = $request->input('url');
+            $link->category = $request->input('category');
+            $link->html = $request->input('html');
+
+            preg_match_all('~<\s*meta\s+property="(og:[^"]+)"\s+content="([^"]*)~i', $link->html, $matches);
+
+            if ($matches !== false) {
+                $link->title       = $this->getMetaKey('og:title', $matches);
+                $link->description = $this->getMetaKey('og:description', $matches);
+                $link->og_image    = $this->getMetaKey('og:image', $matches);
+            }
+        }
 
         return view('admin.link_update', compact('link', 'message'));
+    }
+
+    private function getMetaKey($key, $matches)  {
+        $index = array_search($key, $matches[1]);
+        if ($index !== false) {
+            return $matches[2][$index];
+        }
+        return '';
     }
 }

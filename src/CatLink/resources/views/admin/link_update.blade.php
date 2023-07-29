@@ -19,6 +19,10 @@
         <div>
             <label for="category">HTML</label>
             <textarea name="html" rows="2">{{ old('html', $link) }}</textarea>
+            <div class="grid">
+                <button type="submit" name="execute" value="get_html" >get HTML</button>
+                <button type="submit" name="execute" value="get_meta" >get meta</button>
+            </div>
         </div>
         <div>
             <label for="category">Title</label>
@@ -26,7 +30,7 @@
         </div>
         <div>
             <label for="category">Description</label>
-            <input type="text" name="description" value="{{ old('description', $link) }}" maxlength="2000">
+            <textarea name="description" rows="2" maxlength="2000">{{ old('description', $link) }}</textarea>
         </div>
         <div>
             <label for="category">OG image</label>
