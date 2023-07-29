@@ -9,7 +9,7 @@ use App\Models\Link;
 class AdminController extends Controller
 {
     public function home(Request $request) {
-        $links = Link::where('state', 'to process')->orderBy('id', 'DESC')->get();
+        $links = Link::with('user')->where('state', 'to process')->orderBy('id', 'ASC')->get();
 
         return view('admin.home', compact('links'));
     }
@@ -46,5 +46,14 @@ class AdminController extends Controller
         $link = Link::where('id', $id)->firstOrFail();
 
         return view('admin.link_update', compact('link'));
+    }
+
+    public function linkUpdateSubmit($id, Request $request) {
+        $link = Link::where('id', $id)->firstOrFail();
+        $link->update($request->all());
+
+        $message = 'File updated successfully!';
+
+        return view('admin.link_update', compact('link', 'message'));
     }
 }

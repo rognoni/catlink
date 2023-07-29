@@ -2,8 +2,8 @@
 
 @section('content')
     @isset($message)
-    <p style="color: green">
-        {{ $message }}
+    <p>
+        <ins>{{ $message }}</ins>
     </p>
     @endisset
     <form action="{{ route('admin_editor') }}" method="POST">

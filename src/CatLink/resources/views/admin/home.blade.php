@@ -9,6 +9,9 @@
     <p>
         <small>
             {{ $link->created_at->format('Y-m-d') }} <a href="{{ route('link_update', ['id' => $link->id]) }}">to process</a>
+            @isset($link->user)
+                added by <a href="{{ $link->user->profile_link }}">{{ '@' . $link->user->username }}</a>
+            @endisset
             {{ $link->url}}
         </small>
     </p>
