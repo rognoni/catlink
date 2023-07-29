@@ -14,12 +14,12 @@
     <p>
         <small>
         @if ($link->state == 'to process')
-            {{ $link->created_at->format('Y-m-d') }} <b style="background-color: yellow; color: black">to process</b>
+            {{ $link->created_at->format('Y-m-d') }} <mark>to process</mark>
             {{ $link->url}}
         @endif
 
         @if ($link->state == 'active')
-            {{ $link->created_at->format('Y-m-d') }} <b style="color: green">active</b>
+            {{ $link->created_at->format('Y-m-d') }} <ins>active</ins>
             <a href="{{ route('link_detail', ['id' => $link->id]) }}">{{ $link->title }}</a>
         @endif
         </small>
