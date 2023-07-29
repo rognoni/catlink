@@ -53,10 +53,8 @@ Route::prefix('CatLink')->middleware(['auth'])->group(function () {
 });
 
 Route::prefix('CatLink/admin')->middleware(['auth', 'role:admin'])->group(function () {
-    /*Route::get('/home', function () {
-        return "TODO admin";
-    })->name('admin_home');*/
     Route::get('/home', [AdminController::class, 'home'])->name('admin_home');
     Route::get('/editor', [AdminController::class, 'editor'])->name('admin_editor');
     Route::post('/editor', [AdminController::class, 'editorSubmit']);
+    Route::get('/link_update/{id}', [AdminController::class, 'linkUpdate'])->name('link_update');
 });

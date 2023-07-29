@@ -2,6 +2,9 @@
 
 @section('content')
 <p>
+    @if(auth()->user()->isAdmin())
+        <a href="{{ route('admin_home') }}">🏠Admin</a> &nbsp;
+    @endif
     <a href="{{ route('link_add') }}">➕Add link</a> &nbsp;
     <a href="{{ route('logout') }}">👋Logout</a>
 </p>

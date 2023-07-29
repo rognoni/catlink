@@ -4,10 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Link;
+
 class AdminController extends Controller
 {
     public function home(Request $request) {
-        return view('admin.home');
+        $links = Link::where('state', 'to process')->orderBy('id', 'DESC')->get();
+
+        return view('admin.home', compact('links'));
     }
 
     public function editor() {
@@ -36,5 +40,11 @@ class AdminController extends Controller
         }
 
         return view('admin.editor', compact('message', 'filename', 'filetext'));
+    }
+
+    public function linkUpdate($id) {
+        $link = Link::where('id', $id)->firstOrFail();
+
+        return view('admin.link_update', compact('link'));
     }
 }
