@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en"><!-- data-theme="dark" -->
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,6 +9,19 @@
     <style>
       :root {
         --spacing: 0.5rem;
+      }
+
+      [data-theme=light],
+      :root:not([data-theme=dark]) {
+        --error-color: red;
+      }
+
+      [data-theme=dark] {
+        --error-color: red;
+      }
+      
+      .error {
+        color: var(--error-color);
       }
     </style>
     @yield('head')

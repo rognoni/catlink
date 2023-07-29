@@ -6,7 +6,7 @@
         <form action="{{ route('link_add') }}" method="POST">
             @csrf
         @if ($errors->any())
-        <ul style="color: red">
+        <ul class="error">
         @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>
         @endforeach

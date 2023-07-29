@@ -5,13 +5,13 @@
     <div class="grid">
         <form action="{{ route('login') }}" method="POST">
             @csrf
-        @if ($errors->any())
-        <ul style="color: red">
-        @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-        </ul>
-        @endif
+            @if ($errors->any())
+            <ul class="error">
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+            @endif
             <div>
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" value="{{ old('username') }}" placeholder="" maxlength="20">
