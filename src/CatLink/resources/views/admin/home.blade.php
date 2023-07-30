@@ -3,6 +3,7 @@
 @section('content')
 <p>
     <a href="{{ route('admin_editor') }}">📝Editor</a> &nbsp;
+    <a href="{{ route('register_link') }}">®️Register</a> &nbsp;
     <a href="{{ route('logout') }}">👋Logout</a>
 </p>
     @forelse ($links as $link)

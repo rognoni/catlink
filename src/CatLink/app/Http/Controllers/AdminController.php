@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 use App\Models\Link;
+use App\Models\User;
 
 class AdminController extends Controller
 {
@@ -84,5 +86,20 @@ class AdminController extends Controller
             return $matches[2][$index];
         }
         return '';
+    }
+
+    public function registerLink(Request $request) {
+        return view('admin.register_link');
+    }
+
+    public function registerLinkSubmit(Request $request) {
+        $message = 'Register link generated!';
+
+        $uuid = (string) Str::uuid();
+        User::create(['token' => $uuid, 'state' => 'register']);
+        
+        $register_link = route('register', ['token' => $uuid]);
+
+        return view('admin.register_link', compact('message', 'register_link'));
     }
 }

@@ -58,4 +58,6 @@ Route::prefix('CatLink/admin')->middleware(['auth', 'role:admin'])->group(functi
     Route::post('/editor', [AdminController::class, 'editorSubmit']);
     Route::get('/link_update/{id}', [AdminController::class, 'linkUpdate'])->name('link_update');
     Route::post('/link_update/{id}', [AdminController::class, 'linkUpdateSubmit']);
+    Route::get('/register_link', [AdminController::class, 'registerLink'])->name('register_link');
+    Route::post('/register_link', [AdminController::class, 'registerLinkSubmit']);
 });
