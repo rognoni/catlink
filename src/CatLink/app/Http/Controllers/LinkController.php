@@ -56,7 +56,21 @@ class LinkController extends Controller
 
         $links = $query->orderBy('category', 'ASC')->get();
 
-        return view('link.categories', compact('search', 'links'));
+        $folders = [];
+        $last_folder = null;
+
+        foreach($links as $link) {
+            $link->category;
+            $path = explode("/", $link->category);
+            
+            if ($last_folder != $path[1]) {
+                array_push($folders, ['name' => $path[1], 'categories' => []]);
+            }
+            array_push($folders[count($folders) - 1]['categories'], $link->category);
+            $last_folder = $path[1];
+        }
+
+        return view('link.categories', compact('search', 'folders'));
     }
 
     public function search(Request $request) {

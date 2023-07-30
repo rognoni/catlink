@@ -14,10 +14,15 @@
 
 </form>
 
-@foreach ($links as $link)
-      <p>
-        <a href="{{ route('search', ['c' => $link->category]) }}">🔍<code>{{ $link->category }}</code></a>
-      </p>
+@foreach ($folders as $folder)
+<details>
+  <summary>📁({{ count($folder['categories']) }}) /{{ $folder['name'] }} ...</summary>
+  <div>
+    @foreach ($folder['categories'] as $category)
+    <p><a href="{{ route('search', ['c' => $category]) }}">🔍<code>{{ $category }}</code></a></p>
+    @endforeach
+  </div>
+</details>
 @endforeach
 
 @endsection
