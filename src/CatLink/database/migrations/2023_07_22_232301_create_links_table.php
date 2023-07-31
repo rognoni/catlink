@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('url', 2000);
             $table->longText('html')->nullable();
             $table->string('title', 100)->nullable();
-            $table->string('description', 2000)->nullable();
+            $table->string('description', 5000)->nullable();
             $table->string('og_image', 2000)->nullable();
             $table->integer('views')->default(0);
             $table->unsignedBigInteger('user_id')->nullable();
