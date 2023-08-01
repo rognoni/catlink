@@ -25,6 +25,11 @@
             {{ $link->created_at->format('Y-m-d') }} <ins>active</ins>
             <a href="{{ route('link_detail', ['id' => $link->id]) }}">{{ $link->title }}</a>
         @endif
+        
+        @if ($link->state == 'rejected')
+            {{ $link->created_at->format('Y-m-d') }} 👎<b>rejected</b>
+            {{ $link->url}}
+        @endif
         </small>
     </p>
     @empty
