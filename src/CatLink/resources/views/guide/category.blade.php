@@ -4,6 +4,7 @@
 <ul>
     <li><a href="#standard">Category path prefix</a></li>
     <li><a href="#general">General rules</a></li>
+    <li><a href="#competitors">Competitors</a></li>
 </ul>
 <p>
 <a name="standard"></a>We are creating a "standard" list of category path prefix:<br>
@@ -14,6 +15,7 @@
 <a href="{{ route('home', ['c' => '/relax']) }}">😴<code>/relax ...</code>🔍</a><br>
 <a href="{{ route('home', ['c' => '/relax/ASMR']) }}">🎧<code>/relax/ASMR ...</code>🔍</a><br>
 <a href="{{ route('home', ['c' => '/software']) }}">⚙️<code>/software ...</code>🔍</a><br>
+<a href="{{ route('home', ['c' => '/web']) }}">🌐<code>/web ...</code>🔍</a><br>
 <br>
 You are free to use what you need but join the <a href="https://github.com/rognoni/catlink/discussions">Discussions on Github</a>
 to help to create this "standard".
@@ -34,5 +36,36 @@ Category path follows these general rules:
         <code>/ spaces / again / spaces</code>
     </li>
 </ul>
+</p>
+<a name="competitors"></a>
+<h3>Competitors</h3>
+<p>
+<table>
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">catlink</th>
+      <th scope="col"><a href="https://curlie.org/en">Curlie</a></th>
+      <th scope="col"><a href="https://www.jasminedirectory.com/">Jasmine</a></th>
+      <th scope="col"><a href="http://www.stpt.com/directory/">stpt</a></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Submit</th>
+      <td>Free</td>
+      <td>Free</td>
+      <td>$59/year or $99 one-time</td>
+      <td>$99/year or $299 one-time</td>
+    </tr>
+    <tr>
+      <th scope="row">Open-source</th>
+      <td>✅</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>❌</td>
+    </tr>
+  </tbody>
+</table>
 </p>
 @endsection
