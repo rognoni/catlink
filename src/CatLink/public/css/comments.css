@@ -1,0 +1,113 @@
+/*
+    ORIGINAL SOURCE-CODE https://gist.github.com/nanos/e216395b4110189e7b12cec88b7a9f34
+*/
+
+:root {
+	--foreground: #1e2030;
+	--background: #f8f9fa;
+	--link: #0b7285;
+	--accent: #868e96;
+}
+
+button {
+    background: none;
+    color: inherit;
+    border: none;
+    cursor: pointer;
+    outline: inherit;
+    background-color: var(--accent);
+    padding: 0.25em 1em;
+    border-radius: 0.5em;
+    color: var(--background);
+    font-size: 16px;
+}
+input { 
+    padding: 0.25em 1em;
+    border-radius: 0.5em;
+    border-width: 1px;
+    border-color: var(--accent);
+    font-size: 16px;
+}
+dialog {
+    width: 30em;
+    padding: 1em;
+    color: var(--foreground);
+    background: var(--background);
+}
+dialog::backdrop {
+    background-color: rgba(0,0,0,0.5);
+}
+dialog #close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0.5em;
+    font: inherit;
+    outline: inherit;
+}
+.input-row {
+    display: flex;
+}
+.input-row > * {
+    display: block;
+}
+.input-row > input {
+    flex-grow: 1;
+    margin-right: 0.5em;
+}
+.input-row > button {
+    flex-basis: 3em;
+}
+
+.addComment {
+    display: block;
+    width: 100%;
+    font-size: 100%;
+    text-align: center;
+}
+
+.comment-list .comment {
+    display: flex;
+    padding: 0.5em;
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--accent);
+    border-radius: 0.5em;
+    margin-bottom: 1em;
+}
+.comment-list .comment .avatar {
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 70px;
+}
+.comment-list .comment .content {
+    flex-grow: 1;
+}
+.comment-list .comment .author {
+    width: 100%;
+    display: flex;
+}
+.comment-list .comment .author > * {
+    flex-grow: 1;
+}
+
+.comment-list .comment .author .date {
+    margin-left: auto;
+    text-align: right;
+}
+@media screen and (max-width: 850px) {
+    .comment-list .comment .author {
+        display: block;
+    }
+    .comment-list .comment .author > * {
+        display: block;
+    }
+    .comment-list .comment .author .date {
+        font-size: 0.8em;
+        text-align: left;
+        margin-left: 0;
+    }
+}

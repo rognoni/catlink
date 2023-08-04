@@ -24,7 +24,8 @@
       <small>
         {{ $link->created_at->format('Y-m-d') }} &nbsp;
         👁️{{ $link->views }} &nbsp;
-        <a href="{{ route('html', ['id' => $link->id]) }}">HTML</a>
+        <a href="{{ route('html', ['id' => $link->id]) }}">HTML</a> &nbsp;
+        @isset($link->comments_link) 💬<a href="{{ route('comments', ['id' => $link->id]) }}">comments</a> @endisset
       </small>
       <article>
         <div class="grid">

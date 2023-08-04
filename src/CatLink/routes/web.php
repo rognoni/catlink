@@ -30,7 +30,8 @@ Route::prefix('/CatLink')->group(function () {
     Route::get('/links/{id}', [LinkController::class, 'detail'])->name('link_detail');
     Route::get('/search', [LinkController::class, 'search'])->name('search');
     Route::get('/categories', [LinkController::class, 'categories'])->name('categories');
-    Route::get('/html{id}', [LinkController::class, 'html'])->name('html');
+    Route::get('/links/{id}/html', [LinkController::class, 'html'])->name('html');
+    Route::get('/links/{id}/comments', [LinkController::class, 'comments'])->name('comments');
 
     Route::get('/about', function () {
         return view('about');

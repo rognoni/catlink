@@ -109,4 +109,12 @@ class LinkController extends Controller
 
         return view('user', compact('links'));
     }
+
+    public function comments($id) {
+        $link = Link::where('id', $id)->where('state', 'active')->firstOrFail();
+
+        abort_if(! isset($link->comments_link), 404);
+
+        return view('link.comments', compact('link'));
+    }
 }
