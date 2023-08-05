@@ -17,7 +17,7 @@
             <input type="text" name="category" value="{{ old('category', $link) }}" placeholder="/category/sub-category/ ..."  maxlength="100">
         </div>
         <div>
-            <label for="category">HTML</label>
+            <label for="html">HTML</label>
             <textarea name="html" rows="2">{{ old('html', $link) }}</textarea>
             <div class="grid">
                 <button type="submit" name="execute" value="get_html" >get HTML</button>
@@ -25,19 +25,23 @@
             </div>
         </div>
         <div>
-            <label for="category">Title</label>
+            <label for="title">Title</label>
             <input type="text" name="title" value="{{ old('title', $link) }}" maxlength="100">
         </div>
         <div>
-            <label for="category">Description</label>
+            <label for="description">Description</label>
             <textarea name="description" rows="2" maxlength="2000">{{ old('description', $link) }}</textarea>
         </div>
         <div>
-            <label for="category">OG image</label>
+            <label for="og_image">OG image</label>
             <input type="text" name="og_image" value="{{ old('og_image', $link) }}" maxlength="2000">
         </div>
         <div>
-            <label for="category">State</label>
+            <label for="comments_link">Comments link</label>
+            <input type="text" name="comments_link" value="{{ old('comments_link', $link) }}" maxlength="2000">
+        </div>
+        <div>
+            <label for="state">State</label>
             <input type="text" name="state" value="{{ old('state', $link) }}" maxlength="20">
         </div>
         <div class="grid">
