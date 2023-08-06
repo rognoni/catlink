@@ -55,6 +55,7 @@ loadComments = (mastodonPostUrl, container) => {
                                     </a>
                                 </div>
                                 <div class="mastodon-comment-content">${replaceEmoji(status.content, status.emojis)}</div> 
+                                ${status.favourites_count > 0 ? `<div><a href="${status.url}/favourites">⭐ ${status.favourites_count}</a></div>` : '' }
                             </div>
                         </div>
                     `}, '')}
